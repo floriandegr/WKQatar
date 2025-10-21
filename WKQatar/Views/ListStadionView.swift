@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ListStadionView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(
+            data:, id: \.self, selection: <#T##Binding<Set<Hashable>>?#>, rowContent: <#T##(_) -> View#>)
     }
 }
 
