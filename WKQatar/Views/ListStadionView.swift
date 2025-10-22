@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ListStadionView: View {
+    let datastore : DataStore = DataStore()
+    @State var selectedStadium :String?
     var body: some View {
         List(
-            data:, id: \.self, selection: <#T##Binding<Set<Hashable>>?#>, rowContent: <#T##(_) -> View#>)
+            datastore.getStadiums() ,id: \.self, selection: $selectedStadium) { stadium in
+                
+                NavigationLink(stadium) {ResultsView(stadium: stadium)}
+            }
     }
 }
 
-#Preview {
-    ListStadionView()
-}
+

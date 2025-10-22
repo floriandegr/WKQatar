@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct WKQatarApp: App {
+    @Environment(DataStore.self) var datastore  = DataStore()
     var body: some Scene {
         WindowGroup {
             ContentView()

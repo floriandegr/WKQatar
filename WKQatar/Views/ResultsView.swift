@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct ResultsView: View {
+    let stadium : String
+    let datastore : DataStore = DataStore()
+    @State var wkresult : WKResult?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(datastore.getMatchesAtStadium(stadium: stadium), id: \.self, selection: $wkresult){result in
+            Grid{
+                GridRow{
+                    Text(result.homeTeam)
+                    Text("X")
+                    Text(result.awayTeam)
+                }
+                GridRow{
+                    if(result.homeTeamScore !=  nil){
+                        Text(String(result.homeTeamScore!))
+                        Text("-")
+                        Text(String(result.awayTeamScore!))
+                    }
+                }
+            }
+            
+        }
     }
 }
 
-#Preview {
-    ResultsView()
-}
